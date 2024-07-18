@@ -36,7 +36,9 @@ public class EnemiesManager : MonoBehaviour
         int waves = wavesCount;
         diedsCount = 0;
 
-        while(waves > 0)
+        onEnemyDie?.Invoke(diedsCount, wavesCount);
+
+        while (waves > 0)
         {
             float spawnTime = Random.Range(Data.spawnTimeMin, Data.spawnTimeMax);
             yield return new WaitForSeconds(spawnTime);
